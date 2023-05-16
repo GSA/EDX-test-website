@@ -1,0 +1,39 @@
+name: Touchpoints Airtable Sync
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 5 * * 0'
+
+jobs:
+  build:
+    if: github.repository == 'gsa/edx' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20    
+    steps:
+    - uses: actions/checkout@v3
+    - name: create env file
+      run: |
+        touch .env
+        echo "AIRTABLE_API_KEY=${{ secrets.AIRTABLE_API_KEY }}" >> ./Tools/edxcli/.env
+        echo "TOUCHPOINTS_API_KEY=${{ secrets.TOUCHPOINTS_API_KEY }}" >> ./Tools/edxcli/.env
+    - name: Read .nvmrc
+      working-directory: ./Tools/scanner
+      run: echo ::set-output name=NODE_VERSION::$(cat .nvmrc)
+      id: nvm
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ steps.nvm.outputs.NODE_VERSION }}
+    - run: yarn install --frozen-lockfile
+      working-directory: ./Tools/edxcli
+    - run: yarn run build
+      working-directory: ./Tools/edxcli
+    - run: bin/run websites push
+      working-directory: ./Tools/edxcli
+    - name: Archive production artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: edxcli-data
+        path: |
+          Tools/edxcli/data
