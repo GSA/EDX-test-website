@@ -20,9 +20,6 @@ jobs:
           ruby-version: '2.7'
           bundler-cache: true
 
-      - name: Install Project Dependencies
-        run: bundle install
-
       - name: Start Server
         run: bundle exec jekyll serve --detach
 
@@ -37,9 +34,7 @@ jobs:
           name: static_report
           path: ./.unlighthouse/
 
-  # Deploy job
   deploy:
-    # Add a dependency to the build job
     needs: build
 
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
@@ -52,11 +47,10 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
-    # Specify runner + deployment step
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2 # or the latest "vX.X.X" version tag for this action
+        uses: actions/deploy-pages@v2
         with:
           artifact_name: "static_report"
