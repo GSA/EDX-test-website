@@ -1,8 +1,5 @@
 module.exports = {
     ci: {
-      // assert: {
-      //   preset: "lighthouse:recommended",
-      // },
       collect: {
         settings: {
           plugins: ["lighthouse-plugin-edx"],
