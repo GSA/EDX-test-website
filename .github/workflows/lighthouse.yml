@@ -15,6 +15,4 @@ jobs:
         with:
           node-version: 18
       - run: npm install -g @lhci/cli@0.12.x https://github.com/GSA/lighthouse-plugin-edx#main
-      - run: lhci autorun
-        env:
-          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+      - run: lhci autorun --settings.plugins=lighthouse-plugin-edx
