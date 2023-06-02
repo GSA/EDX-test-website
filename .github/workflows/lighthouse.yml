@@ -14,7 +14,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: npm ci
+      - run: npm install
       - run: npm install -g @lhci/cli@0.6.x
       - run: npm install -g gsa/lighthouse-plugin-edx#main
       - run: lhci autorun --settings.plugins=lighthouse-plugin-edx
