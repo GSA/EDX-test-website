@@ -11,7 +11,7 @@ jobs:
         with:
           ruby-version: '2.7'
           bundler-cache: true
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v1
       - run: npm install -g @lhci/cli@0.6.x
       # - run: npm install -g gsa/lighthouse-plugin-edx#main
       - run: lhci autorun
