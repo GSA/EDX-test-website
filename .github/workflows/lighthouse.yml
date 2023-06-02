@@ -13,8 +13,7 @@ jobs:
           bundler-cache: true
       - uses: actions/setup-node@v1
       - run: npm install -g @lhci/cli@0.6.x
-      # - run: npm install -g gsa/lighthouse-plugin-edx#main
-      - run: lhci autorun
-      # - run: lhci autorun --settings.plugins=lighthouse-plugin-edx
+      - run: npm install -g gsa/lighthouse-plugin-edx#main
+      - run: lhci autorun --settings.plugins=lighthouse-plugin-edx
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
