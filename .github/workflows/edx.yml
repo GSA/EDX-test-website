@@ -7,5 +7,3 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: GSA/EDX-github-action@v1
-        with:
-          config-path: "lighthouserc.js"
