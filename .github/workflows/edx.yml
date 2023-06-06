@@ -1,0 +1,11 @@
+name: GSA EDX Lighthouse report
+
+on: push
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: GSA/EDX-github-action@v1
+        with:
+          condig-path: "lighthouserc.js"
