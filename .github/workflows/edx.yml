@@ -1,6 +1,6 @@
 name: GSA EDX Lighthouse report
 
-on: push
+on: [push, pull_request]
 
 jobs:
   lighthouse:
