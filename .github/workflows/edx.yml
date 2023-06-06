@@ -6,4 +6,11 @@ jobs:
   lighthouse:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "2.7"
+          bundler-cache: true
       - uses: GSA/EDX-github-action@v1
+        with:
+          config-path: "lighthouserc.js"
