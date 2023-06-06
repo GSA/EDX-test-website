@@ -13,4 +13,4 @@ jobs:
           bundler-cache: true
       - uses: GSA/EDX-github-action@v1
         with:
-          config-path: "lighthouserc.js"
+          config-path: "./lighthouserc.js"
