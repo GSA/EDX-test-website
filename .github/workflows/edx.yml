@@ -8,4 +8,4 @@ jobs:
     steps:
       - uses: GSA/EDX-github-action@v1
         with:
-          condig-path: "lighthouserc.js"
+          config-path: "lighthouserc.js"
