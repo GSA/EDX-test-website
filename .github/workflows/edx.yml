@@ -12,5 +12,3 @@ jobs:
           ruby-version: "2.7"
           bundler-cache: true
       - uses: GSA/EDX-github-action@v1
-        with:
-          config-path: "./lighthouserc.js"
