@@ -1,14 +1,11 @@
 module.exports = {
-    ci: {
-      collect: {
-        settings: {
-          plugins: ['lighthouse-plugin-edx'],
-        },
-        startServerCommand: 'bundle exec jekyll serve',
-        url: ['http://localhost:4000']
+  ci: {
+    collect: {
+      settings: {
+        plugins: ["lighthouse-plugin-edx"],
       },
-      upload: {
-        target: 'temporary-public-storage'
-      },
+      startServerCommand: "bundle exec jekyll serve",
+      url: ["http://localhost:4000"],
     },
-  };
+  },
+};
