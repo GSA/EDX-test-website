@@ -2,6 +2,9 @@ name: GSA EDX Lighthouse report
 
 on: push
 
+permissions:
+  pull-requests: write
+
 jobs:
   lighthouse:
     runs-on: ubuntu-latest
