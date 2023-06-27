@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: cloud-gov/pages-uswds-jekyll
+  repo: GSA/EDX-test-website
   base_url: https://pages.cloud.gov
   auth_endpoint: external/auth/github
   preview_context: pages/build
@@ -20,15 +20,15 @@ collections:
     editor:
       preview: false
     fields:
-      - {label: 'Layout', name: 'layout', widget: 'hidden', default: 'post'}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Author", name: "author", widget: "string"}
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Author", name: "author", widget: "string" }
       - {
           label: "Publish Date",
           name: "date",
           widget: "datetime",
-          format: 'MMMM D, YYYY',
-          dateFormat: 'MMMM D, YYYY',
-          timeFormat: false
+          format: "MMMM D, YYYY",
+          dateFormat: "MMMM D, YYYY",
+          timeFormat: false,
         }
-      - {label: "Body", name: "body", widget: "markdown"}
+      - { label: "Body", name: "body", widget: "markdown" }
