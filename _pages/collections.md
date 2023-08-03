@@ -5,4 +5,4 @@ permalink: /collections/
 datafile: collections
 ---
 
-This is an example for list data file contents
+This is an example for list data file contents. Test.
